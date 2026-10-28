@@ -42,3 +42,18 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.register("hello") {
+    description = "Prints 'Hello!' to the console."
+    doLast {
+        println("Hello!")
+    }
+}
+
+tasks.register("greet") {
+    description = "Prints a greeting to the console."
+    doLast {
+        println("How are you?")
+    }
+    dependsOn("hello")
+}

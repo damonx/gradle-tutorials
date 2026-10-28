@@ -5,10 +5,10 @@ package org.example;
 
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "Hello DAMONX!!!";
     }
 
-    public static void main(String[] args) {
+    static void main() {
         System.out.println(new App().getGreeting());
     }
 }
