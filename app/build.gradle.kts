@@ -9,6 +9,8 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
     id("com.diffplug.spotless").version("6.25.0")
+    // Apply the maven publish plugin
+    id("maven-publish")
 }
 
 repositories {
@@ -36,6 +38,18 @@ java {
 application {
     // Define the main class for the application.
     mainClass = "org.example.App"
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.gradle.tutorial"
+            artifactId = "tutorial"
+            version = "1.0"
+
+            from(components["java"])
+        }
+    }
 }
 
 tasks.named<Test>("test") {
